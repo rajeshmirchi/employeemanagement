@@ -13,19 +13,17 @@ import com.javatech.employee.service.EmployeeService;
 
 @RestController
 public class EmployeeController {
-	
+
 	@Autowired
 	public EmployeeService empService;
-	
+
 	@GetMapping("/employees")
 	public List<Employee> getEmployees() {
 		return empService.getAllEmployees();
 	}
-	
-	
+
 	@PostMapping("/employee")
 	public Employee addEmployee(@RequestBody Employee e) {
-		System.out.println("provided input: "+e.getFirstname());
 		return empService.addEmployee(e);
 	}
 
